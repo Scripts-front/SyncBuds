@@ -97,8 +97,13 @@ Plans:
   1. When audio playback starts on iPhone while the headphone is on Mac, the app automatically initiates a switch without any user action
   2. The iOS home screen widget shows connection status and triggers a switch with one tap, without opening the app
   3. Headphone battery level is displayed in the Mac popover and iOS app when the connected device reports it
-**Plans**: TBD
+**Plans**: 2 plans
+**Notes**: BT-05 (battery level) deferred to v2 per user decision (D-07). Automatic switching implemented as foreground-based heuristic (D-01) rather than audio session detection.
 **UI hint**: yes
+
+Plans:
+- [ ] 05-01-PLAN.md — Auto-switch toggle + scenePhase hook + WidgetStateWriter App Group bridge (SW-06)
+- [ ] 05-02-PLAN.md — iOS home screen widget (WidgetKit + AppIntents + ForegroundContinuableIntent) (UI-05)
 
 ## Progress
 
