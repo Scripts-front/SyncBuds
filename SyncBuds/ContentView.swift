@@ -12,6 +12,7 @@ import IOBluetooth
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var devices: [BluetoothDevice]
+    @Environment(MultipeerService.self) private var multipeerService
 
     // MARK: - State
 
@@ -32,7 +33,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("SyncBuds — Foundation Spike")
+            Text("SyncBuds")
                 .font(.title2)
                 .fontWeight(.bold)
 
@@ -40,6 +41,45 @@ struct ContentView: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
+
+            Divider()
+
+            Text("Peer Status")
+                .font(.headline)
+
+            if multipeerService.isConnectedToPeer {
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .foregroundStyle(.green)
+                            .font(.caption)
+                        Text("Connected to \(multipeerService.connectedPeerName ?? "peer")")
+                            .font(.caption)
+                    }
+                    let ownerText: String = {
+                        switch multipeerService.peerBluetoothStatus {
+                        case "connected":
+                            return "Headphone is on \(multipeerService.connectedPeerName ?? "peer")"
+                        case "disconnected":
+                            return "Headphone is available"
+                        default:
+                            return "Headphone status unknown"
+                        }
+                    }()
+                    Text(ownerText)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            } else {
+                HStack {
+                    Image(systemName: "circle.fill")
+                        .foregroundStyle(.gray)
+                        .font(.caption)
+                    Text("Peer offline (open app on other device)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
 
 #if os(macOS)
             Divider()
@@ -152,4 +192,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: BluetoothDevice.self, inMemory: true)
+        .environment(MultipeerService())
 }
