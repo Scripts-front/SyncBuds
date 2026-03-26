@@ -26,7 +26,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Communication
 
-- [ ] **COM-01**: Mac and iPhone communicate via Multipeer Connectivity as primary channel (~50-300ms latency)
+- [x] **COM-01**: Mac and iPhone communicate via Multipeer Connectivity as primary channel (~50-300ms latency)
 - [ ] **COM-02**: CloudKit serves as fallback channel when devices are not on the same local network
 - [ ] **COM-03**: SignalRouter automatically selects best available transport (Multipeer preferred, CloudKit fallback)
 - [ ] **COM-04**: Communication survives iOS background state (CloudKit silent push for wake)
@@ -91,7 +91,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SW-04 | Phase 3 | Pending |
 | SW-05 | Phase 3 | Pending |
 | SW-06 | Phase 5 | Pending |
-| COM-01 | Phase 2 | Pending |
+| COM-01 | Phase 2 | Complete |
 | COM-02 | Phase 2 | Pending |
 | COM-03 | Phase 2 | Pending |
 | COM-04 | Phase 2 | Pending |

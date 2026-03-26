@@ -51,7 +51,7 @@ Plans:
 
 Plans:
 - [ ] 02-01-PLAN.md — SyncSignal Codable struct + unit tests (COM-01, COM-02/03/04 deferred stubs)
-- [ ] 02-02-PLAN.md — Entitlements + Info.plist for Multipeer permissions (COM-01)
+- [x] 02-02-PLAN.md — Entitlements + Info.plist for Multipeer permissions (COM-01)
 - [ ] 02-03-PLAN.md — MultipeerService implementation (COM-01)
 - [ ] 02-04-PLAN.md — Wire BluetoothManager + AudioRouteMonitor + ContentView status display (COM-01, BT-04)
 - [ ] 02-05-PLAN.md — Real-device verification checkpoint (COM-01, BT-04)
@@ -99,7 +99,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/4 | In Progress|  |
-| 2. Communication | 0/5 | Planned | - |
+| 2. Communication | 1/5 | In Progress|  |
 | 3. Switching | 0/TBD | Not started | - |
 | 4. UI | 0/TBD | Not started | - |
 | 5. Automation | 0/TBD | Not started | - |
