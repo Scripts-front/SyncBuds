@@ -186,7 +186,8 @@ import IOBluetooth
     }
 
     /// Called when Mac receives a .switchRequest from iOS (iPhone→Mac path).
-    /// Mac calls openConnection() with a 500ms lead delay (Pitfall 3 mitigation).
+    /// Mac retries openConnection() up to 5 times with increasing delays.
+    /// The headphone may still be connected to iPhone — it needs time to release.
     private func performMacConnectForIncomingRequest() {
         guard let manager = bluetoothManager,
               let device = manager.pairedAudioDevices().first else {
@@ -194,19 +195,38 @@ import IOBluetooth
             return
         }
 
-        // Check if already connected — openConnection() when already connected is a no-op.
         if device.isConnected() {
             print("[SwitchCoordinator] Mac: device already connected — nothing to do")
             return
         }
 
-        // 500ms delay before connect — headphone may still be releasing from iOS (Pitfall 3)
-        DispatchQueue.main.asyncAfter(deadline: .now() + Self.connectLeadDelaySeconds) {
-            print("[SwitchCoordinator] Mac connecting headphone (iPhone→Mac request): \(device.name ?? "device")")
-            _ = manager.connectDevice(device)
-            // deviceDidConnect callback in BluetoothManager will send .status("connected") signal to iOS.
-            // Start a 10-second timeout in case deviceDidConnect never fires.
-            self.startConnectTimeout(for: device.addressString)
+        // Retry connect with increasing delays — headphone needs time to release from iPhone
+        let delays: [Double] = [1.0, 2.0, 3.0, 4.0, 5.0]
+        attemptConnect(device: device, manager: manager, delays: delays, attempt: 0)
+    }
+
+    private func attemptConnect(device: IOBluetoothDevice, manager: BluetoothManager, delays: [Double], attempt: Int) {
+        guard attempt < delays.count else {
+            print("[SwitchCoordinator] Mac connect failed after \(delays.count) attempts")
+            postNotification(title: "Switch Failed", body: "Headphone did not connect after \(delays.count) attempts")
+            transitionToError("Connect failed after retries")
+            return
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + delays[attempt]) {
+            print("[SwitchCoordinator] Mac connecting headphone attempt \(attempt + 1)/\(delays.count): \(device.name ?? "device")")
+            let success = manager.connectDevice(device)
+
+            if success {
+                print("[SwitchCoordinator] openConnection() succeeded on attempt \(attempt + 1)")
+                // deviceDidConnect callback will confirm and send status to iOS
+                self.startConnectTimeout(for: device.addressString)
+            } else if device.isConnected() {
+                print("[SwitchCoordinator] Device already connected after attempt \(attempt + 1)")
+            } else {
+                print("[SwitchCoordinator] openConnection() failed on attempt \(attempt + 1) — retrying...")
+                self.attemptConnect(device: device, manager: manager, delays: delays, attempt: attempt + 1)
+            }
         }
     }
 
