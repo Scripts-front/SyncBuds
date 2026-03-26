@@ -23,6 +23,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F713508F2F75546A00F94622 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		F71350252F74C76000F94622 /* SyncBuds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncBuds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F71350342F74C76200F94622 /* SyncBudsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyncBudsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +56,11 @@
 		F71350412F74C76200F94622 /* SyncBudsUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SyncBudsUITests;
+			sourceTree = "<group>";
+		};
+		F71350822F75546A00F94622 /* Privacy - Bluetooth Always Usage Description */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Privacy - Bluetooth Always Usage Description";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -78,6 +96,7 @@
 				F71350272F74C76000F94622 /* SyncBuds */,
 				F71350372F74C76200F94622 /* SyncBudsTests */,
 				F71350412F74C76200F94622 /* SyncBudsUITests */,
+				F71350822F75546A00F94622 /* Privacy - Bluetooth Always Usage Description */,
 				F71350262F74C76000F94622 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +121,7 @@
 				F71350212F74C76000F94622 /* Sources */,
 				F71350222F74C76000F94622 /* Frameworks */,
 				F71350232F74C76000F94622 /* Resources */,
+				F713508F2F75546A00F94622 /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
@@ -192,6 +212,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = F713501C2F74C76000F94622;
 			minimizedProjectReferenceProxies = 1;
@@ -399,6 +420,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "SyncBuds needs Bluetooth to switch headphones between devices";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=*]" = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -444,6 +467,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "SyncBuds needs Bluetooth to switch headphones between devices";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
