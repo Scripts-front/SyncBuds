@@ -53,7 +53,7 @@ Plans:
 - [x] 02-01-PLAN.md — SyncSignal Codable struct + unit tests (COM-01, COM-02/03/04 deferred stubs)
 - [x] 02-02-PLAN.md — Entitlements + Info.plist for Multipeer permissions (COM-01)
 - [x] 02-03-PLAN.md — MultipeerService implementation (COM-01)
-- [ ] 02-04-PLAN.md — Wire BluetoothManager + AudioRouteMonitor + ContentView status display (COM-01, BT-04)
+- [x] 02-04-PLAN.md — Wire BluetoothManager + AudioRouteMonitor + ContentView status display (COM-01, BT-04)
 - [ ] 02-05-PLAN.md — Real-device verification checkpoint (COM-01, BT-04)
 
 ### Phase 3: Switching

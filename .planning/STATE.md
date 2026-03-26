@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-03-PLAN.md
-last_updated: "2026-03-26T12:43:29.284Z"
+stopped_at: Completed 02-04-PLAN.md
+last_updated: "2026-03-26T12:59:44.029Z"
 last_activity: 2026-03-26
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 7
+  completed_plans: 8
   percent: 67
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 ## Current Position
 
 Phase: 02 (communication) — EXECUTING
-Plan: 4 of 5
+Plan: 5 of 5
 Status: Ready to execute
 Last activity: 2026-03-26
 
@@ -57,6 +57,7 @@ Progress: [███████░░░] 67%
 | Phase 02 P02 | 5min | 2 tasks | 2 files |
 | Phase 02-communication P01 | 1 | 2 tasks | 2 files |
 | Phase 02-communication P03 | 8min | 1 tasks | 1 files |
+| Phase 02-communication P04 | 12min | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,9 @@ Recent decisions affecting current work:
 - [Phase 02-communication]: isFresh threshold 30s — Pitfall 6 mitigation; COM-02/COM-03/COM-04 deferred in code comment (no Developer Account)
 - [Phase 02-communication]: MultipeerService placed in Shared/ without class-level platform guards — MultipeerConnectivity is cross-platform (iOS 7+/macOS 10.10+); #if os() guards used only for MCPeerID name and signal sender enum
 - [Phase 02-communication]: localBluetoothStatus set by external callers (BluetoothManager/AudioRouteMonitor) — MultipeerService remains decoupled from platform Bluetooth APIs
+- [Phase 02-communication]: MultipeerService injected via .environment() at App level — standard SwiftUI pattern for @Observable shared state
+- [Phase 02-communication]: BluetoothManager and AudioRouteMonitor use weak var multipeerService to prevent retain cycles
+- [Phase 02-communication]: notifyPeerOfRouteChange() helper in AudioRouteMonitor centralizes send logic across all route change cases
 
 ### Pending Todos
 
@@ -92,6 +96,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T12:43:29.279Z
-Stopped at: Completed 02-03-PLAN.md
+Last session: 2026-03-26T12:59:44.024Z
+Stopped at: Completed 02-04-PLAN.md
 Resume file: None
