@@ -4,5 +4,12 @@
 <dict>
     <key>NSBluetoothAlwaysUsageDescription</key>
     <string>SyncBuds needs Bluetooth access to detect and switch your headphones between Mac and iPhone.</string>
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>SyncBuds uses your local network to communicate between your Mac and iPhone for headphone switching.</string>
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_syncbuds-bt._tcp</string>
+        <string>_syncbuds-bt._udp</string>
+    </array>
 </dict>
 </plist>
