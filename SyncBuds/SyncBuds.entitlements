@@ -10,6 +10,12 @@
     <key>com.apple.security.device.bluetooth</key>
     <true/>
 
+    <!-- Multipeer Connectivity — required for MCNearbyServiceAdvertiser/Browser (Pitfall 3) -->
+    <key>com.apple.security.network.client</key>
+    <true/>
+    <key>com.apple.security.network.server</key>
+    <true/>
+
     <!-- CloudKit — REMOVED: requires paid Apple Developer Account (D-01) -->
     <!-- Re-add these keys after creating Apple Developer Account:
     <key>com.apple.developer.icloud-containers-environment</key>
