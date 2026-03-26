@@ -13,7 +13,7 @@ SyncBuds delivers automatic Bluetooth headphone switching between Mac and iPhone
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Foundation** - Entitlements, project structure, and verified Mac Bluetooth control (the load-bearing prototype)
-- [ ] **Phase 2: Communication** - Cross-device signaling via Multipeer Connectivity and CloudKit, with live connection status
+- [ ] **Phase 2: Communication** - Cross-device signaling via Multipeer Connectivity (CloudKit deferred), with live connection status
 - [ ] **Phase 3: Switching** - Bidirectional switching state machine with race condition handling and notifications
 - [ ] **Phase 4: UI** - Mac menu bar app, iOS interface, and keyboard shortcut
 - [ ] **Phase 5: Automation** - Automatic switching heuristics, iOS home screen widget, and battery display
@@ -39,17 +39,22 @@ Plans:
 - [ ] 01-04-PLAN.md — Test harness wiring + real-device human verification checkpoint
 
 ### Phase 2: Communication
-**Goal**: Mac and iPhone can reliably signal each other, and that signal delivery is verified on real devices over both local network and cellular
+**Goal**: Mac and iPhone can reliably signal each other via Multipeer Connectivity, and that signal delivery is verified on real devices on the same local network
 **Depends on**: Phase 1
-**Requirements**: COM-01, COM-02, COM-03, COM-04, BT-04
+**Requirements**: COM-01, COM-02 (deferred), COM-03 (deferred), COM-04 (deferred), BT-04
+**Notes**: COM-02/COM-03/COM-04 are deferred — no Apple Developer Account. Only Multipeer (COM-01) is implemented. No SignalRouter abstraction needed yet (D-03).
 **Success Criteria** (what must be TRUE):
   1. A signal sent from Mac arrives on iPhone within 500ms when both are on the same Wi-Fi network (Multipeer path)
-  2. A signal sent from Mac arrives on iPhone within 30 seconds when devices are on different networks (CloudKit path)
-  3. iPhone wakes from background when a CloudKit silent push arrives and processes the signal
-  4. SignalRouter automatically uses Multipeer when available and falls back to CloudKit without user intervention
-  5. Both Mac and iOS apps display live connection status showing which device currently has the headphone
-**Plans**: TBD
-**UI hint**: yes
+  2. Both Mac and iOS apps display live connection status showing which device currently has the headphone (BT-04)
+  3. When iOS app is backgrounded, Mac shows "Peer offline" — foreground-only limitation is accepted
+**Plans**: 5 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — SyncSignal Codable struct + unit tests (COM-01, COM-02/03/04 deferred stubs)
+- [ ] 02-02-PLAN.md — Entitlements + Info.plist for Multipeer permissions (COM-01)
+- [ ] 02-03-PLAN.md — MultipeerService implementation (COM-01)
+- [ ] 02-04-PLAN.md — Wire BluetoothManager + AudioRouteMonitor + ContentView status display (COM-01, BT-04)
+- [ ] 02-05-PLAN.md — Real-device verification checkpoint (COM-01, BT-04)
 
 ### Phase 3: Switching
 **Goal**: The headphone switches between Mac and iPhone bidirectionally when the user requests it, including full race condition handling
@@ -94,7 +99,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/4 | In Progress|  |
-| 2. Communication | 0/TBD | Not started | - |
+| 2. Communication | 0/5 | Planned | - |
 | 3. Switching | 0/TBD | Not started | - |
 | 4. UI | 0/TBD | Not started | - |
 | 5. Automation | 0/TBD | Not started | - |
