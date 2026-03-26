@@ -3,7 +3,7 @@ phase: 02-communication
 plan: 05
 subsystem: communication
 tags: [multipeer-connectivity, bluetooth, peer-discovery, real-device-verification]
-status: checkpoint-pending
+status: complete
 
 # Dependency graph
 requires:
@@ -28,7 +28,7 @@ key-decisions: []
 
 patterns-established: []
 
-requirements-completed: []  # COM-01, BT-04 — pending human verification
+requirements-completed: [COM-01, BT-04]
 
 # Metrics
 duration: checkpoint-pending
@@ -37,7 +37,7 @@ completed: pending
 
 # Phase 02 Plan 05: Real-Device Multipeer Verification Summary
 
-**STATUS: CHECKPOINT-PENDING — awaiting human verification of Multipeer signaling pipeline on real Mac + iPhone hardware**
+**STATUS: COMPLETE — all 4 real-device tests passed. COM-01 and BT-04 verified on physical Mac + iPhone hardware.**
 
 ## Performance
 
