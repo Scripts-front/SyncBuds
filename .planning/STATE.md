@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-ui-01-PLAN.md
-last_updated: "2026-03-26T22:49:24.038Z"
+stopped_at: Completed 04-ui-03-PLAN.md
+last_updated: "2026-03-26T22:52:43.551Z"
 last_activity: 2026-03-26
 progress:
   total_phases: 5
   completed_phases: 3
   total_plans: 15
-  completed_plans: 13
+  completed_plans: 14
   percent: 67
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 ## Current Position
 
 Phase: 04 (ui) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-03-26
 
@@ -61,6 +61,7 @@ Progress: [███████░░░] 67%
 | Phase 03-switching P01 | 2min | 1 tasks | 1 files |
 | Phase 03-switching P02 | 2min | 2 tasks | 4 files |
 | Phase 04-ui P01 | 69s | 3 tasks | 3 files |
+| Phase 04-ui P03 | 2min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -95,6 +96,8 @@ Recent decisions affecting current work:
 - [Phase 04-ui]: Settings scene placeholder in Plan 01 — HotkeySettingsView wired in Plan 02
 - [Phase 04-ui]: Environment injected inside MenuBarExtra content closure (not on scene modifier) — per documented pitfall
 - [Phase 04-ui]: menuBarIconName uses == .switching — valid because SwitchState has custom Equatable conformance
+- [Phase 04-ui]: glassEffect(.regular.interactive()) on switch GroupBox for press feedback — aligns with D-05 interactive card design
+- [Phase 04-ui]: iOS switch trigger uses Task { switchCoordinator.requestSwitch() } with no local @State — maps directly to Phase 5 AppIntent without view refactoring
 
 ### Pending Todos
 
@@ -108,6 +111,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T22:49:24.021Z
-Stopped at: Completed 04-ui-01-PLAN.md
+Last session: 2026-03-26T22:52:43.546Z
+Stopped at: Completed 04-ui-03-PLAN.md
 Resume file: None
