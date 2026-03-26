@@ -69,11 +69,39 @@ struct SyncBudsApp: App {
     }
 
     var body: some Scene {
+        #if os(macOS)
+        MenuBarExtra {
+            MacMenuView()
+                .environment(multipeerService)
+                .environment(switchCoordinator)
+                .modelContainer(sharedModelContainer)
+        } label: {
+            Image(systemName: menuBarIconName)
+        }
+        .menuBarExtraStyle(.menu)
+
+        Settings {
+            Text("Settings")  // Placeholder — replaced in Plan 02 (HotkeySettingsView)
+                .padding()
+        }
+        #else
         WindowGroup {
             ContentView()
+                .environment(multipeerService)
+                .environment(switchCoordinator)
         }
         .modelContainer(sharedModelContainer)
-        .environment(multipeerService)
-        .environment(switchCoordinator)
+        #endif
     }
+
+    // MARK: - macOS Menu Bar Icon (per D-04)
+
+    #if os(macOS)
+    private var menuBarIconName: String {
+        if switchCoordinator.switchState == .switching {
+            return "arrow.2.circlepath"
+        }
+        return multipeerService.isConnectedToPeer ? "headphones.circle.fill" : "headphones.circle"
+    }
+    #endif
 }
