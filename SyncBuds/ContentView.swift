@@ -5,29 +5,16 @@
 
 import SwiftUI
 import SwiftData
-#if os(macOS)
-import IOBluetooth
-#endif
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var devices: [BluetoothDevice]
     @Environment(MultipeerService.self) private var multipeerService
+    @Environment(SwitchCoordinator.self) private var switchCoordinator
 
     // MARK: - State
 
     @State private var statusMessage: String = "Ready"
-    @State private var discoveredDeviceNames: [String] = []
-
-    // MARK: - BluetoothManager (macOS only)
-
-#if os(macOS)
-    private let bluetoothManager = BluetoothManager()
-    private var selectedDevice: IOBluetoothDevice? {
-        // Returns the first paired audio device for spike testing.
-        bluetoothManager.pairedAudioDevices().first
-    }
-#endif
 
     // MARK: - Body
 
@@ -81,42 +68,38 @@ struct ContentView: View {
                 }
             }
 
-#if os(macOS)
             Divider()
 
-            Text("IOBluetooth Spike Controls")
+            Text("Switching")
                 .font(.headline)
 
-            HStack(spacing: 12) {
-                Button("Enumerate Devices") {
-                    enumerateDevices()
+            let switchLabel: String = {
+                switch switchCoordinator.switchState {
+                case .idle:
+                    return "Switch Headphone"
+                case .switching:
+                    return "Switching..."
+                case .cooldown:
+                    return "Cooldown (reconnect suppressed)"
+                case .error(let msg):
+                    return "Error: \(msg)"
                 }
+            }()
 
-                Button("Disconnect First Device") {
-                    disconnectFirst()
-                }
+            let switchDisabled: Bool = {
+                if case .idle = switchCoordinator.switchState { return false }
+                return true
+            }()
 
-                Button("Connect First Device") {
-                    connectFirst()
-                }
-
-                Button("Start Monitoring") {
-                    bluetoothManager.startMonitoringConnections()
-                    statusMessage = "Monitoring started — watch Xcode console for connect/disconnect events"
-                }
+            Button(switchLabel) {
+                Task { switchCoordinator.requestSwitch() }
             }
             .buttonStyle(.bordered)
+            .disabled(switchDisabled)
 
-            if !discoveredDeviceNames.isEmpty {
-                Divider()
-                Text("Discovered Audio Devices:")
-                    .font(.subheadline)
-                ForEach(discoveredDeviceNames, id: \.self) { name in
-                    Text("• \(name)")
-                        .font(.caption)
-                }
-            }
-#endif
+            Text(switchLabel)
+                .font(.caption)
+                .foregroundStyle(.secondary)
 
             Divider()
 
@@ -145,52 +128,11 @@ struct ContentView: View {
         .padding()
         .frame(minWidth: 480)
     }
-
-    // MARK: - Actions (macOS only)
-
-#if os(macOS)
-    private func enumerateDevices() {
-        let found = bluetoothManager.pairedAudioDevices()
-        discoveredDeviceNames = found.map { $0.name ?? $0.addressString ?? "unknown" }
-        // Upsert each discovered device into SwiftData registry (BT-03)
-        found.forEach { bluetoothManager.upsertToRegistry($0, in: modelContext) }
-        statusMessage = found.isEmpty
-            ? "No audio devices found — check entitlement or pair a headphone"
-            : "Found \(found.count) audio device(s): \(discoveredDeviceNames.joined(separator: ", "))"
-    }
-
-    private func disconnectFirst() {
-        guard let device = selectedDevice else {
-            statusMessage = "No paired audio device found to disconnect"
-            return
-        }
-        statusMessage = "Disconnecting \(device.name ?? "device")... (watch System Settings > Bluetooth)"
-        Task {
-            let success = await bluetoothManager.disconnectDevice(device)
-            await MainActor.run {
-                statusMessage = success
-                    ? "Disconnected! Verify headphone is gone from System Settings > Bluetooth connected list."
-                    : "Disconnect FAILED after 10 attempts. Check Xcode console for details."
-            }
-        }
-    }
-
-    private func connectFirst() {
-        guard let device = selectedDevice else {
-            statusMessage = "No paired audio device found to connect"
-            return
-        }
-        let name = device.name ?? "device"
-        let success = bluetoothManager.connectDevice(device)
-        statusMessage = success
-            ? "openConnection() succeeded for \(name) — verify audio routes to headphone"
-            : "openConnection() failed for \(name) — check Xcode console"
-    }
-#endif
 }
 
 #Preview {
     ContentView()
         .modelContainer(for: BluetoothDevice.self, inMemory: true)
         .environment(MultipeerService())
+        .environment(SwitchCoordinator())
 }
