@@ -23,10 +23,16 @@ struct SyncBudsApp: App {
         }
     }()
 
+    @State private var multipeerService = MultipeerService()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    multipeerService.start()
+                }
         }
         .modelContainer(sharedModelContainer)
+        .environment(multipeerService)
     }
 }
