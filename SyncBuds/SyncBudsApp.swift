@@ -28,6 +28,7 @@ struct SyncBudsApp: App {
 
     #if os(macOS)
     @State private var bluetoothManager: BluetoothManager
+    private let hotkeyManager = GlobalHotkeyManager()
     #endif
 
     init() {
@@ -60,6 +61,30 @@ struct SyncBudsApp: App {
 
         #if os(macOS)
         bluetooth.startMonitoringConnections()
+
+        // Register global hotkey (⌘⇧Space default; user-configurable via Settings)
+        // Reads from UserDefaults; if not yet set, uses defaults 49 (Space) + 768 (⌘⇧)
+        let savedKeyCode = UserDefaults.standard.integer(forKey: "hotkeyKeyCode")
+        let savedModifiers = UserDefaults.standard.integer(forKey: "hotkeyModifiers")
+        let keyCode = UInt32(savedKeyCode.nonZeroOr(49))
+        let mods = UInt32(savedModifiers.nonZeroOr(768))
+        let hotkeyMgr = hotkeyManager
+        hotkeyMgr.register(keyCode: keyCode, modifiers: mods) {
+            Task { @MainActor in coordinator.requestSwitch() }
+        }
+
+        // Re-register when user changes the shortcut in Settings
+        NotificationCenter.default.addObserver(
+            forName: .hotkeyChanged,
+            object: nil,
+            queue: .main
+        ) { [weak hotkeyMgr] _ in
+            let kc = UInt32(UserDefaults.standard.integer(forKey: "hotkeyKeyCode").nonZeroOr(49))
+            let m = UInt32(UserDefaults.standard.integer(forKey: "hotkeyModifiers").nonZeroOr(768))
+            hotkeyMgr?.register(keyCode: kc, modifiers: m) {
+                Task { @MainActor in coordinator.requestSwitch() }
+            }
+        }
         #endif
 
         // Request notification permission
@@ -81,8 +106,7 @@ struct SyncBudsApp: App {
         .menuBarExtraStyle(.menu)
 
         Settings {
-            Text("Settings")  // Placeholder — replaced in Plan 02 (HotkeySettingsView)
-                .padding()
+            HotkeySettingsView()
         }
         #else
         WindowGroup {
