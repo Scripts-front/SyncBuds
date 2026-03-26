@@ -5,6 +5,9 @@
 
 import Foundation
 import UserNotifications
+#if os(macOS)
+import IOBluetooth
+#endif
 
 /// Orchestrates bidirectional Bluetooth headphone switching between Mac and iPhone.
 /// Owns the switch state machine and coordinates BluetoothManager (macOS) and MultipeerService (both).
