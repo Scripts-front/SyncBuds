@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-02-PLAN.md
-last_updated: "2026-03-26T12:30:58.427Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-26T12:32:00Z"
 last_activity: 2026-03-26
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 9
-  completed_plans: 5
+  completed_plans: 6
   percent: 0
 ---
 
@@ -26,11 +26,11 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 ## Current Position
 
 Phase: 02 (communication) — EXECUTING
-Plan: 2 of 5
+Plan: 3 of 5
 Status: Ready to execute
 Last activity: 2026-03-26
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [███████░░░] 67%
 
 ## Performance Metrics
 
@@ -55,6 +55,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01 P02 | 2 | 2 tasks | 4 files |
 | Phase 01-foundation P03 | 6min | 2 tasks | 2 files |
 | Phase 02 P02 | 5min | 2 tasks | 2 files |
+| Phase 02-communication P01 | 1 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -72,6 +73,9 @@ Recent decisions affecting current work:
 - [Phase 01-03]: IOBluetoothUserNotification tokens retained in array — releasing them silently stops all disconnect callbacks
 - [Phase 01-03]: File-level #if os() guards (not just around imports) — prevents any IOBluetooth or AVAudioSession symbols from reaching wrong target
 - [Phase 02]: Service type string 'syncbuds-bt' locked at permission layer — must match Plan 03 MultipeerService constant exactly
+- [Phase 02-communication]: SyncSignal.Platform raw values 'mac'/'ios' match BluetoothDevice.lastConnectedPlatform for cross-layer consistency
+- [Phase 02-communication]: bluetoothStatus kept as plain String for extensibility without breaking Codable contract
+- [Phase 02-communication]: isFresh threshold 30s — Pitfall 6 mitigation; COM-02/COM-03/COM-04 deferred in code comment (no Developer Account)
 
 ### Pending Todos
 
@@ -85,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T12:30:58.419Z
-Stopped at: Completed 02-02-PLAN.md
-Resume file: None
+Last session: 2026-03-26T12:32:00Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: .planning/phases/02-communication/02-01-SUMMARY.md
