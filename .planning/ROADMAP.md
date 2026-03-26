@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [ ] 01-01-PLAN.md — Entitlements + platform-gate directory structure (INF-01, INF-02, INF-03)
-- [ ] 01-02-PLAN.md — BluetoothDevice SwiftData model, schema swap, remove Item placeholder (INF-04, BT-03)
+- [x] 01-02-PLAN.md — BluetoothDevice SwiftData model, schema swap, remove Item placeholder (INF-04, BT-03)
 - [ ] 01-03-PLAN.md — BluetoothManager IOBluetooth spike + iOS AudioRouteMonitor (BT-01, BT-02)
 - [ ] 01-04-PLAN.md — Test harness wiring + real-device human verification checkpoint
 
@@ -93,7 +93,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 1/4 | In Progress|  |
 | 2. Communication | 0/TBD | Not started | - |
 | 3. Switching | 0/TBD | Not started | - |
 | 4. UI | 0/TBD | Not started | - |

@@ -11,7 +11,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **BT-01**: Mac app detects all paired Bluetooth audio devices (A2DP/HFP) via IOBluetooth
 - [ ] **BT-02**: iOS app detects current audio route and connected Bluetooth device via AVAudioSession
-- [ ] **BT-03**: App persists known devices across launches (name, MAC address, last seen)
+- [x] **BT-03**: App persists known devices across launches (name, MAC address, last seen)
 - [ ] **BT-04**: App shows real-time connection status (connected/disconnected, which device has it)
 - [ ] **BT-05**: App displays headphone battery level when available via HFP or vendor BLE profile
 
@@ -44,7 +44,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **INF-01**: Bluetooth entitlement configured (com.apple.security.device.bluetooth) for macOS sandbox
 - [ ] **INF-02**: CloudKit entitlements and container configured in Apple Developer portal
 - [ ] **INF-03**: Platform-gated code via #if os(macOS) / #if os(iOS) in shared Swift files
-- [ ] **INF-04**: SwiftData models for device registry and switch history
+- [x] **INF-04**: SwiftData models for device registry and switch history
 
 ## v2 Requirements
 
@@ -82,7 +82,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | BT-01 | Phase 1 | Pending |
 | BT-02 | Phase 1 | Pending |
-| BT-03 | Phase 1 | Pending |
+| BT-03 | Phase 1 | Complete |
 | BT-04 | Phase 2 | Pending |
 | BT-05 | Phase 5 | Pending |
 | SW-01 | Phase 3 | Pending |
@@ -103,7 +103,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | INF-01 | Phase 1 | Pending |
 | INF-02 | Phase 1 | Pending |
 | INF-03 | Phase 1 | Pending |
-| INF-04 | Phase 1 | Pending |
+| INF-04 | Phase 1 | Complete |
 
 **Coverage:**
 - v1 requirements: 24 total

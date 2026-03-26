@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-26T02:54:20.454Z"
-last_activity: 2026-03-25 — Roadmap created, phases derived from requirements
+status: executing
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-03-26T03:30:24.406Z"
+last_activity: 2026-03-26
 progress:
   total_phases: 5
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 4
+  completed_plans: 1
   percent: 0
 ---
 
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** When a user wants to use their Bluetooth headphones on a different device, the switch happens automatically — no manual disconnecting/reconnecting required.
-**Current focus:** Phase 1 — Foundation
+**Current focus:** Phase 01 — foundation
 
 ## Current Position
 
-Phase: 1 of 5 (Foundation)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-03-25 — Roadmap created, phases derived from requirements
+Phase: 01 (foundation) — EXECUTING
+Plan: 2 of 4
+Status: Ready to execute
+Last activity: 2026-03-26
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01 P02 | 2 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -63,6 +64,8 @@ Recent decisions affecting current work:
 - [Init]: Mac as Bluetooth control center — iOS has no public A2DP/HFP API; all connect/disconnect lives on macOS side
 - [Init]: CloudKit fallback + Multipeer primary — Multipeer for low-latency local path; CloudKit for cross-network durability
 - [Init]: Phase 1 is a mandatory spike — IOBluetooth disconnect behavior must be verified on real hardware before any other phase builds on it
+- [Phase 01]: BluetoothDevice model placed in Shared/Models/ with no platform guards — Foundation+SwiftData compile identically on macOS and iOS
+- [Phase 01]: addressString (MAC address) chosen as stable unique key for BluetoothDevice — survives device renames
 
 ### Pending Todos
 
@@ -76,6 +79,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T02:54:20.415Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-foundation/01-CONTEXT.md
+Last session: 2026-03-26T03:30:24.400Z
+Stopped at: Completed 01-02-PLAN.md
+Resume file: None
