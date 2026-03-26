@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-switching-03-01-PLAN.md
-last_updated: "2026-03-26T19:28:32.704Z"
+stopped_at: Completed 03-switching-03-02-PLAN.md
+last_updated: "2026-03-26T19:33:53.675Z"
 last_activity: 2026-03-26
 progress:
   total_phases: 5
   completed_phases: 2
   total_plans: 12
-  completed_plans: 10
+  completed_plans: 11
   percent: 67
 ---
 
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 ## Current Position
 
 Phase: 03 (switching) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 Status: Ready to execute
 Last activity: 2026-03-26
 
@@ -59,6 +59,7 @@ Progress: [███████░░░] 67%
 | Phase 02-communication P03 | 8min | 1 tasks | 1 files |
 | Phase 02-communication P04 | 12min | 3 tasks | 4 files |
 | Phase 03-switching P01 | 2min | 1 tasks | 1 files |
+| Phase 03-switching P02 | 2min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -87,6 +88,9 @@ Recent decisions affecting current work:
 - [Phase 03-switching]: SwitchCoordinator in Shared/ with no file-level platform guard — internal #if os() blocks only, matching MultipeerService pattern
 - [Phase 03-switching]: Cooldown window 10s — exceeds 1-3s auto-reconnect window from PITFALLS.md; verify on real hardware
 - [Phase 03-switching]: switchRequest sent after disconnectDevice() confirms success — prevents race with iOS connecting while Mac holds ACL link
+- [Phase 03-switching]: BluetoothManager moved to SyncBudsApp — app-lifetime ownership required for coordinator wiring
+- [Phase 03-switching]: IOBluetooth spike harness removed from ContentView — replaced by production Switch button (switchCoordinator.requestSwitch())
+- [Phase 03-switching]: SwitchCoordinator owned by SyncBudsApp, injected via .environment() — same lifetime/DI pattern as MultipeerService
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T19:28:32.698Z
-Stopped at: Completed 03-switching-03-01-PLAN.md
+Last session: 2026-03-26T19:33:53.667Z
+Stopped at: Completed 03-switching-03-02-PLAN.md
 Resume file: None
