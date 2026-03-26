@@ -31,6 +31,10 @@ final class BluetoothManager: NSObject {
     /// Active per-device disconnect notification registrations (retained to stay alive).
     private var disconnectNotifications: [IOBluetoothUserNotification] = []
 
+    /// Weak reference to the shared Multipeer signaling service.
+    /// Set by the app after instantiating MultipeerService.
+    weak var multipeerService: MultipeerService?
+
     // MARK: - Enumeration
 
     /// Returns all paired Bluetooth audio devices (A2DP/HFP headphones and speakers).
@@ -146,6 +150,10 @@ final class BluetoothManager: NSObject {
         let name = device.name ?? device.addressString ?? "unknown"
         print("[BluetoothManager] Device connected: \(name)")
 
+        multipeerService?.localBluetoothStatus = "connected"
+        let signal = SyncSignal(type: .status, sender: .mac, timestamp: Date(), bluetoothStatus: "connected")
+        try? multipeerService?.send(signal)
+
         // Register for this specific device's disconnect notification.
         // Retain the notification token — releasing it stops the notification.
         if let disconnectToken = device.register(
@@ -162,6 +170,10 @@ final class BluetoothManager: NSObject {
     ) {
         let name = device.name ?? device.addressString ?? "unknown"
         print("[BluetoothManager] Device disconnected: \(name)")
+
+        multipeerService?.localBluetoothStatus = "disconnected"
+        let signal = SyncSignal(type: .status, sender: .mac, timestamp: Date(), bluetoothStatus: "disconnected")
+        try? multipeerService?.send(signal)
 
         // Remove the now-fired notification token.
         disconnectNotifications.removeAll { $0 === notification }
