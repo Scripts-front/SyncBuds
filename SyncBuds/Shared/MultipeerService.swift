@@ -150,6 +150,13 @@ import UIKit
             peerBluetoothStatus = signal.bluetoothStatus
             print("[MultipeerService] Peer bluetooth status: \(signal.bluetoothStatus) (sender: \(signal.sender.rawValue))")
             switchCoordinator?.handleIncomingStatusConfirmation(bluetoothStatus: signal.bluetoothStatus)
+            #if os(iOS)
+            WidgetStateWriter.update(
+                isConnected: self.isConnectedToPeer,
+                peerBTStatus: signal.bluetoothStatus,
+                peerName: self.connectedPeerName
+            )
+            #endif
         case .switchRequest:
             print("[MultipeerService] Received switch request from \(signal.sender.rawValue)")
             switchCoordinator?.handleIncomingSwitchRequest(from: signal.sender)
@@ -204,6 +211,13 @@ extension MultipeerService: MCSessionDelegate {
                 self.isConnectedToPeer = true
                 self.connectedPeerName = peerID.displayName
                 self.startStatusTimer()
+                #if os(iOS)
+                WidgetStateWriter.update(
+                    isConnected: true,
+                    peerBTStatus: self.peerBluetoothStatus,
+                    peerName: peerID.displayName
+                )
+                #endif
                 print("[MultipeerService] Connected to: \(peerID.displayName)")
             case .connecting:
                 print("[MultipeerService] Connecting to: \(peerID.displayName)")
@@ -212,6 +226,13 @@ extension MultipeerService: MCSessionDelegate {
                 self.connectedPeerName = nil
                 self.peerBluetoothStatus = "unknown"
                 self.stopStatusTimer()
+                #if os(iOS)
+                WidgetStateWriter.update(
+                    isConnected: false,
+                    peerBTStatus: "unknown",
+                    peerName: nil
+                )
+                #endif
                 print("[MultipeerService] Disconnected from: \(peerID.displayName)")
                 // Restart browsing to reconnect when peer returns (e.g., app foregrounded on iOS).
                 self.browser.startBrowsingForPeers()

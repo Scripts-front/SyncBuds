@@ -25,6 +25,8 @@ struct SyncBudsApp: App {
 
     @State private var multipeerService: MultipeerService
     @State private var switchCoordinator: SwitchCoordinator
+    @Environment(\.scenePhase) private var scenePhase
+    @AppStorage("autoSwitchEnabled") private var autoSwitchEnabled = false
 
     #if os(macOS)
     @State private var bluetoothManager: BluetoothManager
@@ -115,6 +117,12 @@ struct SyncBudsApp: App {
                 .environment(switchCoordinator)
         }
         .modelContainer(sharedModelContainer)
+        .onChange(of: scenePhase) { _, newPhase in
+            guard newPhase == .active else { return }
+            guard autoSwitchEnabled else { return }
+            guard multipeerService.peerBluetoothStatus == "connected" else { return }
+            Task { @MainActor in switchCoordinator.requestSwitch() }
+        }
         #endif
     }
 

@@ -9,6 +9,7 @@ import SwiftUI
 struct iOSContentView: View {
     @Environment(MultipeerService.self) private var multipeerService
     @Environment(SwitchCoordinator.self) private var switchCoordinator
+    @AppStorage("autoSwitchEnabled") private var autoSwitchEnabled: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -66,6 +67,21 @@ struct iOSContentView: View {
                             .foregroundStyle(.secondary)
                     }
                     .glassEffect(.regular.interactive(), in: RoundedRectangle(cornerRadius: 16))
+
+                    // MARK: - Auto-switch Settings Card (per D-03)
+                    GroupBox {
+                        Toggle("Auto-switch on foreground", isOn: $autoSwitchEnabled)
+                            .font(.subheadline)
+                        Text("When enabled, SyncBuds automatically switches the headphone to iPhone when you open the app.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    } label: {
+                        Label("Automation", systemImage: "bolt.fill")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 16))
 
                 }
                 .padding()
