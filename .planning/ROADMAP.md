@@ -86,7 +86,7 @@ Plans:
 
 Plans:
 - [x] 04-01-PLAN.md — LSUIElement + MacMenuView + SyncBudsApp MenuBarExtra (UI-01, UI-02)
-- [ ] 04-02-PLAN.md — GlobalHotkeyManager (Carbon) + HotkeySettingsView + wire into SyncBudsApp (UI-03)
+- [x] 04-02-PLAN.md — GlobalHotkeyManager (Carbon) + HotkeySettingsView + wire into SyncBudsApp (UI-03)
 - [x] 04-03-PLAN.md — iOSContentView widget-style cards + iOS WindowGroup update (UI-04)
 
 ### Phase 5: Automation

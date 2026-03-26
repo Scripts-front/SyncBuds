@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 04-ui-03-PLAN.md
-last_updated: "2026-03-26T22:52:43.551Z"
+status: verifying
+stopped_at: Completed 04-ui-02-PLAN.md
+last_updated: "2026-03-26T22:53:11.990Z"
 last_activity: 2026-03-26
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 15
-  completed_plans: 14
+  completed_plans: 15
   percent: 67
 ---
 
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 
 Phase: 04 (ui) — EXECUTING
 Plan: 3 of 3
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-03-26
 
 Progress: [███████░░░] 67%
@@ -62,6 +62,7 @@ Progress: [███████░░░] 67%
 | Phase 03-switching P02 | 2min | 2 tasks | 4 files |
 | Phase 04-ui P01 | 69s | 3 tasks | 3 files |
 | Phase 04-ui P03 | 2min | 2 tasks | 2 files |
+| Phase 04-ui P02 | 103s | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -98,6 +99,9 @@ Recent decisions affecting current work:
 - [Phase 04-ui]: menuBarIconName uses == .switching — valid because SwitchState has custom Equatable conformance
 - [Phase 04-ui]: glassEffect(.regular.interactive()) on switch GroupBox for press feedback — aligns with D-05 interactive card design
 - [Phase 04-ui]: iOS switch trigger uses Task { switchCoordinator.requestSwitch() } with no local @State — maps directly to Phase 5 AppIntent without view refactoring
+- [Phase 04-ui]: Used top-level @convention(c) hotkeyEventBridge — Swift closures cannot be passed as EventHandlerProcPtr
+- [Phase 04-ui]: NSEvent.addLocalMonitorForEvents (not Global) for Settings key recorder — no Accessibility permission needed
+- [Phase 04-ui]: NotificationCenter.hotkeyChanged for hotkey re-registration — decouples HotkeySettingsView from SyncBudsApp
 
 ### Pending Todos
 
@@ -111,6 +115,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T22:52:43.546Z
-Stopped at: Completed 04-ui-03-PLAN.md
+Last session: 2026-03-26T22:53:11.983Z
+Stopped at: Completed 04-ui-02-PLAN.md
 Resume file: None
