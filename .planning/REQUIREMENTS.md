@@ -17,11 +17,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Switching
 
-- [ ] **SW-01**: Mac can programmatically disconnect a Bluetooth audio device via IOBluetooth closeConnection()
-- [ ] **SW-02**: Mac can programmatically connect a known Bluetooth audio device via IOBluetooth openConnection()
-- [ ] **SW-03**: Bidirectional switching works end-to-end (Mac→iPhone and iPhone→Mac)
+- [x] **SW-01**: Mac can programmatically disconnect a Bluetooth audio device via IOBluetooth closeConnection()
+- [x] **SW-02**: Mac can programmatically connect a known Bluetooth audio device via IOBluetooth openConnection()
+- [x] **SW-03**: Bidirectional switching works end-to-end (Mac→iPhone and iPhone→Mac)
 - [ ] **SW-04**: Switch completion triggers system notification on both platforms (success or failure)
-- [ ] **SW-05**: Switching handles race conditions (headphone auto-reconnect suppression, cooldown window)
+- [x] **SW-05**: Switching handles race conditions (headphone auto-reconnect suppression, cooldown window)
 - [ ] **SW-06**: Automatic switching based on audio activity detection (heuristic-based, no manual trigger)
 
 ### Communication
@@ -85,11 +85,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BT-03 | Phase 1 | Complete |
 | BT-04 | Phase 2 | Complete |
 | BT-05 | Phase 5 | Pending |
-| SW-01 | Phase 3 | Pending |
-| SW-02 | Phase 3 | Pending |
-| SW-03 | Phase 3 | Pending |
+| SW-01 | Phase 3 | Complete |
+| SW-02 | Phase 3 | Complete |
+| SW-03 | Phase 3 | Complete |
 | SW-04 | Phase 3 | Pending |
-| SW-05 | Phase 3 | Pending |
+| SW-05 | Phase 3 | Complete |
 | SW-06 | Phase 5 | Pending |
 | COM-01 | Phase 2 | Complete |
 | COM-02 | Phase 2 | Pending |

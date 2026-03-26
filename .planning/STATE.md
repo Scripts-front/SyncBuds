@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 3 context gathered
-last_updated: "2026-03-26T14:05:10.493Z"
+stopped_at: Completed 03-switching-03-01-PLAN.md
+last_updated: "2026-03-26T19:28:32.704Z"
 last_activity: 2026-03-26
 progress:
   total_phases: 5
   completed_phases: 2
-  total_plans: 9
-  completed_plans: 9
+  total_plans: 12
+  completed_plans: 10
   percent: 67
 ---
 
@@ -21,12 +21,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** When a user wants to use their Bluetooth headphones on a different device, the switch happens automatically — no manual disconnecting/reconnecting required.
-**Current focus:** Phase 02 — communication
+**Current focus:** Phase 03 — switching
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (switching) — EXECUTING
+Plan: 2 of 3
 Status: Ready to execute
 Last activity: 2026-03-26
 
@@ -58,6 +58,7 @@ Progress: [███████░░░] 67%
 | Phase 02-communication P01 | 1 | 2 tasks | 2 files |
 | Phase 02-communication P03 | 8min | 1 tasks | 1 files |
 | Phase 02-communication P04 | 12min | 3 tasks | 4 files |
+| Phase 03-switching P01 | 2min | 1 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,9 @@ Recent decisions affecting current work:
 - [Phase 02-communication]: MultipeerService injected via .environment() at App level — standard SwiftUI pattern for @Observable shared state
 - [Phase 02-communication]: BluetoothManager and AudioRouteMonitor use weak var multipeerService to prevent retain cycles
 - [Phase 02-communication]: notifyPeerOfRouteChange() helper in AudioRouteMonitor centralizes send logic across all route change cases
+- [Phase 03-switching]: SwitchCoordinator in Shared/ with no file-level platform guard — internal #if os() blocks only, matching MultipeerService pattern
+- [Phase 03-switching]: Cooldown window 10s — exceeds 1-3s auto-reconnect window from PITFALLS.md; verify on real hardware
+- [Phase 03-switching]: switchRequest sent after disconnectDevice() confirms success — prevents race with iOS connecting while Mac holds ACL link
 
 ### Pending Todos
 
@@ -96,6 +100,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T14:05:10.457Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-switching/03-CONTEXT.md
+Last session: 2026-03-26T19:28:32.698Z
+Stopped at: Completed 03-switching-03-01-PLAN.md
+Resume file: None

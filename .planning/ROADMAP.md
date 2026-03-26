@@ -69,7 +69,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — SwitchCoordinator state machine (SW-01, SW-02, SW-03, SW-05)
+- [x] 03-01-PLAN.md — SwitchCoordinator state machine (SW-01, SW-02, SW-03, SW-05)
 - [ ] 03-02-PLAN.md — Wire coordinator into MultipeerService, BluetoothManager, SyncBudsApp, ContentView (SW-03, SW-04, SW-05)
 - [ ] 03-03-PLAN.md — Real-device verification checkpoint (SW-03, SW-04, SW-05)
 
@@ -105,6 +105,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/4 | In Progress|  |
 | 2. Communication | 1/5 | In Progress|  |
-| 3. Switching | 0/3 | Not started | - |
+| 3. Switching | 1/3 | In Progress|  |
 | 4. UI | 0/TBD | Not started | - |
 | 5. Automation | 0/TBD | Not started | - |
