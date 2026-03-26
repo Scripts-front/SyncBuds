@@ -84,8 +84,10 @@ import UIKit
     /// Starts advertising this device and browsing for peers on the local network.
     /// Call once when the app becomes active. Safe to call multiple times.
     func start() {
+        print("[MultipeerService] Starting advertiser and browser for service type: \(Self.serviceType)")
         advertiser.startAdvertisingPeer()
         browser.startBrowsingForPeers()
+        print("[MultipeerService] Peer ID: \(peerID.displayName)")
     }
 
     /// Stops advertising and browsing, and disconnects the current session.

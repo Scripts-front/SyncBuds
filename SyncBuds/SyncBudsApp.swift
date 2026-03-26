@@ -34,6 +34,7 @@ struct SyncBudsApp: App {
         WindowGroup {
             ContentView()
                 .onAppear {
+                    print("[SyncBudsApp] onAppear fired — starting MultipeerService")
                     multipeerService.start()
 
                     // Wire coordinator dependencies
