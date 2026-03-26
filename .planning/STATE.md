@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 4 context gathered
-last_updated: "2026-03-26T22:24:38.979Z"
+stopped_at: Completed 04-ui-01-PLAN.md
+last_updated: "2026-03-26T22:49:24.038Z"
 last_activity: 2026-03-26
 progress:
   total_phases: 5
   completed_phases: 3
-  total_plans: 12
-  completed_plans: 12
+  total_plans: 15
+  completed_plans: 13
   percent: 67
 ---
 
@@ -21,12 +21,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** When a user wants to use their Bluetooth headphones on a different device, the switch happens automatically — no manual disconnecting/reconnecting required.
-**Current focus:** Phase 03 — switching
+**Current focus:** Phase 04 — ui
 
 ## Current Position
 
-Phase: 4
-Plan: Not started
+Phase: 04 (ui) — EXECUTING
+Plan: 2 of 3
 Status: Ready to execute
 Last activity: 2026-03-26
 
@@ -60,6 +60,7 @@ Progress: [███████░░░] 67%
 | Phase 02-communication P04 | 12min | 3 tasks | 4 files |
 | Phase 03-switching P01 | 2min | 1 tasks | 1 files |
 | Phase 03-switching P02 | 2min | 2 tasks | 4 files |
+| Phase 04-ui P01 | 69s | 3 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -91,6 +92,9 @@ Recent decisions affecting current work:
 - [Phase 03-switching]: BluetoothManager moved to SyncBudsApp — app-lifetime ownership required for coordinator wiring
 - [Phase 03-switching]: IOBluetooth spike harness removed from ContentView — replaced by production Switch button (switchCoordinator.requestSwitch())
 - [Phase 03-switching]: SwitchCoordinator owned by SyncBudsApp, injected via .environment() — same lifetime/DI pattern as MultipeerService
+- [Phase 04-ui]: Settings scene placeholder in Plan 01 — HotkeySettingsView wired in Plan 02
+- [Phase 04-ui]: Environment injected inside MenuBarExtra content closure (not on scene modifier) — per documented pitfall
+- [Phase 04-ui]: menuBarIconName uses == .switching — valid because SwitchState has custom Equatable conformance
 
 ### Pending Todos
 
@@ -104,6 +108,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T22:24:38.972Z
-Stopped at: Phase 4 context gathered
-Resume file: .planning/phases/04-ui/04-CONTEXT.md
+Last session: 2026-03-26T22:49:24.021Z
+Stopped at: Completed 04-ui-01-PLAN.md
+Resume file: None

@@ -85,7 +85,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — LSUIElement + MacMenuView + SyncBudsApp MenuBarExtra (UI-01, UI-02)
+- [x] 04-01-PLAN.md — LSUIElement + MacMenuView + SyncBudsApp MenuBarExtra (UI-01, UI-02)
 - [ ] 04-02-PLAN.md — GlobalHotkeyManager (Carbon) + HotkeySettingsView + wire into SyncBudsApp (UI-03)
 - [ ] 04-03-PLAN.md — iOSContentView widget-style cards + iOS WindowGroup update (UI-04)
 
@@ -110,5 +110,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation | 3/4 | In Progress|  |
 | 2. Communication | 1/5 | In Progress|  |
 | 3. Switching | 2/3 | In Progress|  |
-| 4. UI | 0/3 | Not started | - |
+| 4. UI | 1/3 | In Progress|  |
 | 5. Automation | 0/TBD | Not started | - |

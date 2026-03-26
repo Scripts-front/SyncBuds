@@ -33,8 +33,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### UI/UX
 
-- [ ] **UI-01**: Mac app lives in menu bar via MenuBarExtra (.window style), no Dock icon (LSUIElement)
-- [ ] **UI-02**: Menu bar popover shows connected device, status, and one-click switch button
+- [x] **UI-01**: Mac app lives in menu bar via MenuBarExtra (.window style), no Dock icon (LSUIElement)
+- [x] **UI-02**: Menu bar popover shows connected device, status, and one-click switch button
 - [ ] **UI-03**: Global keyboard shortcut on Mac to trigger switch (configurable hotkey)
 - [ ] **UI-04**: iOS app shows connection status and switch button with minimalist interface
 - [ ] **UI-05**: iOS home screen widget to initiate switch without opening app (WidgetKit)
@@ -95,8 +95,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | COM-02 | Phase 2 | Pending |
 | COM-03 | Phase 2 | Pending |
 | COM-04 | Phase 2 | Pending |
-| UI-01 | Phase 4 | Pending |
-| UI-02 | Phase 4 | Pending |
+| UI-01 | Phase 4 | Complete |
+| UI-02 | Phase 4 | Complete |
 | UI-03 | Phase 4 | Pending |
 | UI-04 | Phase 4 | Pending |
 | UI-05 | Phase 5 | Pending |
