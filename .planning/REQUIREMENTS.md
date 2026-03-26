@@ -80,36 +80,36 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| BT-01 | Pending | Pending |
-| BT-02 | Pending | Pending |
-| BT-03 | Pending | Pending |
-| BT-04 | Pending | Pending |
-| BT-05 | Pending | Pending |
-| SW-01 | Pending | Pending |
-| SW-02 | Pending | Pending |
-| SW-03 | Pending | Pending |
-| SW-04 | Pending | Pending |
-| SW-05 | Pending | Pending |
-| SW-06 | Pending | Pending |
-| COM-01 | Pending | Pending |
-| COM-02 | Pending | Pending |
-| COM-03 | Pending | Pending |
-| COM-04 | Pending | Pending |
-| UI-01 | Pending | Pending |
-| UI-02 | Pending | Pending |
-| UI-03 | Pending | Pending |
-| UI-04 | Pending | Pending |
-| UI-05 | Pending | Pending |
-| INF-01 | Pending | Pending |
-| INF-02 | Pending | Pending |
-| INF-03 | Pending | Pending |
-| INF-04 | Pending | Pending |
+| BT-01 | Phase 1 | Pending |
+| BT-02 | Phase 1 | Pending |
+| BT-03 | Phase 1 | Pending |
+| BT-04 | Phase 2 | Pending |
+| BT-05 | Phase 5 | Pending |
+| SW-01 | Phase 3 | Pending |
+| SW-02 | Phase 3 | Pending |
+| SW-03 | Phase 3 | Pending |
+| SW-04 | Phase 3 | Pending |
+| SW-05 | Phase 3 | Pending |
+| SW-06 | Phase 5 | Pending |
+| COM-01 | Phase 2 | Pending |
+| COM-02 | Phase 2 | Pending |
+| COM-03 | Phase 2 | Pending |
+| COM-04 | Phase 2 | Pending |
+| UI-01 | Phase 4 | Pending |
+| UI-02 | Phase 4 | Pending |
+| UI-03 | Phase 4 | Pending |
+| UI-04 | Phase 4 | Pending |
+| UI-05 | Phase 5 | Pending |
+| INF-01 | Phase 1 | Pending |
+| INF-02 | Phase 1 | Pending |
+| INF-03 | Phase 1 | Pending |
+| INF-04 | Phase 1 | Pending |
 
 **Coverage:**
 - v1 requirements: 24 total
-- Mapped to phases: 0
-- Unmapped: 24 ⚠️
+- Mapped to phases: 24
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-25*
-*Last updated: 2026-03-25 after initial definition*
+*Last updated: 2026-03-25 after roadmap creation*
