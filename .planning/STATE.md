@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Phase 5 context gathered
-last_updated: "2026-03-26T23:06:38.531Z"
+status: executing
+stopped_at: Completed 05-automation/05-01-PLAN.md
+last_updated: "2026-03-26T23:45:00.543Z"
 last_activity: 2026-03-26
 progress:
   total_phases: 5
   completed_phases: 4
-  total_plans: 15
-  completed_plans: 15
+  total_plans: 17
+  completed_plans: 16
   percent: 67
 ---
 
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-25)
 
 **Core value:** When a user wants to use their Bluetooth headphones on a different device, the switch happens automatically — no manual disconnecting/reconnecting required.
-**Current focus:** Phase 04 — ui
+**Current focus:** Phase 05 — automation
 
 ## Current Position
 
-Phase: 5
-Plan: Not started
-Status: Phase complete — ready for verification
+Phase: 05 (automation) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
 Last activity: 2026-03-26
 
 Progress: [███████░░░] 67%
@@ -63,6 +63,7 @@ Progress: [███████░░░] 67%
 | Phase 04-ui P01 | 69s | 3 tasks | 3 files |
 | Phase 04-ui P03 | 2min | 2 tasks | 2 files |
 | Phase 04-ui P02 | 103s | 2 tasks | 3 files |
+| Phase 05-automation P01 | 3min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -102,6 +103,9 @@ Recent decisions affecting current work:
 - [Phase 04-ui]: Used top-level @convention(c) hotkeyEventBridge — Swift closures cannot be passed as EventHandlerProcPtr
 - [Phase 04-ui]: NSEvent.addLocalMonitorForEvents (not Global) for Settings key recorder — no Accessibility permission needed
 - [Phase 04-ui]: NotificationCenter.hotkeyChanged for hotkey re-registration — decouples HotkeySettingsView from SyncBudsApp
+- [Phase 05-automation]: autoSwitchEnabled defaults to false — opt-in is safer than opt-out for automated switching
+- [Phase 05-automation]: scenePhase onChange on WindowGroup (App level) not iOSContentView — RESEARCH.md Pattern 1
+- [Phase 05-automation]: WidgetStateWriter calls wrapped in #if os(iOS) — macOS target has no App Group widget
 
 ### Pending Todos
 
@@ -115,6 +119,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T23:06:38.523Z
-Stopped at: Phase 5 context gathered
-Resume file: .planning/phases/05-automation/05-CONTEXT.md
+Last session: 2026-03-26T23:45:00.536Z
+Stopped at: Completed 05-automation/05-01-PLAN.md
+Resume file: None

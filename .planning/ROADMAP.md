@@ -102,7 +102,7 @@ Plans:
 **UI hint**: yes
 
 Plans:
-- [ ] 05-01-PLAN.md — Auto-switch toggle + scenePhase hook + WidgetStateWriter App Group bridge (SW-06)
+- [x] 05-01-PLAN.md — Auto-switch toggle + scenePhase hook + WidgetStateWriter App Group bridge (SW-06)
 - [ ] 05-02-PLAN.md — iOS home screen widget (WidgetKit + AppIntents + ForegroundContinuableIntent) (UI-05)
 
 ## Progress
@@ -116,4 +116,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Communication | 1/5 | In Progress|  |
 | 3. Switching | 2/3 | In Progress|  |
 | 4. UI | 1/3 | In Progress|  |
-| 5. Automation | 0/TBD | Not started | - |
+| 5. Automation | 1/2 | In Progress|  |
