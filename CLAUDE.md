@@ -188,6 +188,41 @@ SyncBuds is a native macOS + iOS app that enables automatic Bluetooth headphone 
 ## Cross-Cutting Concerns
 <!-- GSD:architecture-end -->
 
+## Commit Message Format
+
+```
+<emoji> <type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Types with Emojis
+
+| Emoji | Type | When to use |
+|-------|------|-------------|
+| ✨ | **feat** | A new feature |
+| 🐛 | **fix** | A bug fix |
+| 📝 | **docs** | Documentation only changes |
+| 💄 | **style** | Code style/formatting (whitespace, semicolons, etc) |
+| ♻️ | **refactor** | Code change that neither fixes a bug nor adds a feature |
+| ⚡️ | **perf** | Performance improvements |
+| ✅ | **test** | Adding or updating tests |
+| 🔧 | **chore** | Changes to build process or auxiliary tools |
+| 🏗️ | **build** | Changes that affect the build system or dependencies |
+| 🤖 | **ci** | Changes to CI configuration files and scripts |
+| ⏪️ | **revert** | Reverts a previous commit |
+| 🔒️ | **security** | Security improvements or fixes |
+
+### Important Rules
+
+**NEVER** include these lines in commits:
+```
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
 <!-- GSD:workflow-start source:GSD defaults -->
 ## GSD Workflow Enforcement
 
