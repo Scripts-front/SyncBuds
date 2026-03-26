@@ -30,7 +30,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Mac can reconnect the same headphone via code and audio resumes routing to it
   4. SwiftData device registry persists known headphones (name, MAC address, last-seen platform) across app launches
   5. iOS build compiles and runs with platform-gated code in place; no IOBluetooth symbols leak into iOS target
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Entitlements + platform-gate directory structure (INF-01, INF-02, INF-03)
+- [ ] 01-02-PLAN.md — BluetoothDevice SwiftData model, schema swap, remove Item placeholder (INF-04, BT-03)
+- [ ] 01-03-PLAN.md — BluetoothManager IOBluetooth spike + iOS AudioRouteMonitor (BT-01, BT-02)
+- [ ] 01-04-PLAN.md — Test harness wiring + real-device human verification checkpoint
 
 ### Phase 2: Communication
 **Goal**: Mac and iPhone can reliably signal each other, and that signal delivery is verified on real devices over both local network and cellular
