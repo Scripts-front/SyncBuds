@@ -86,7 +86,7 @@ struct SyncBudsApp: App {
         }
         #else
         WindowGroup {
-            ContentView()
+            iOSContentView()
                 .environment(multipeerService)
                 .environment(switchCoordinator)
         }
