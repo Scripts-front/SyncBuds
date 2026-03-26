@@ -42,9 +42,22 @@
 		F713503E2F74C76200F94622 /* SyncBudsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyncBudsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F71350B82F756C1800F94622 /* Exceptions for "SyncBuds" folder in "SyncBuds" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F71350242F74C76000F94622 /* SyncBuds */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F71350272F74C76000F94622 /* SyncBuds */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F71350B82F756C1800F94622 /* Exceptions for "SyncBuds" folder in "SyncBuds" target */,
+			);
 			path = SyncBuds;
 			sourceTree = "<group>";
 		};
