@@ -78,12 +78,16 @@ Plans:
 **Depends on**: Phase 3
 **Requirements**: UI-01, UI-02, UI-03, UI-04
 **Success Criteria** (what must be TRUE):
-  1. Mac app appears only in the menu bar (no Dock icon); clicking the menu bar icon opens a popover showing connected device, status, and a switch button
+  1. Mac app appears only in the menu bar (no Dock icon); clicking the menu bar icon opens a dropdown showing connected device, status, and a switch button
   2. A configurable global keyboard shortcut on Mac triggers a switch without touching the mouse
-  3. iOS app shows connection status and a switch button in a clean, single-screen interface
+  3. iOS app shows connection status and a switch button in a clean, widget-style card interface
   4. Menu bar icon visually reflects current state (headphone connected vs. not connected)
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 3 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — LSUIElement + MacMenuView + SyncBudsApp MenuBarExtra (UI-01, UI-02)
+- [ ] 04-02-PLAN.md — GlobalHotkeyManager (Carbon) + HotkeySettingsView + wire into SyncBudsApp (UI-03)
+- [ ] 04-03-PLAN.md — iOSContentView widget-style cards + iOS WindowGroup update (UI-04)
 
 ### Phase 5: Automation
 **Goal**: The app switches automatically based on audio activity and provides power-user shortcuts that remove all friction from headphone switching
@@ -106,5 +110,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation | 3/4 | In Progress|  |
 | 2. Communication | 1/5 | In Progress|  |
 | 3. Switching | 2/3 | In Progress|  |
-| 4. UI | 0/TBD | Not started | - |
+| 4. UI | 0/3 | Not started | - |
 | 5. Automation | 0/TBD | Not started | - |
