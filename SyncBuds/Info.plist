@@ -11,5 +11,10 @@
         <string>_syncbuds-bt._tcp</string>
         <string>_syncbuds-bt._udp</string>
     </array>
+    <key>UIApplicationSceneManifest</key>
+    <dict>
+        <key>UIApplicationSupportsMultipleScenes</key>
+        <true/>
+    </dict>
 </dict>
 </plist>
