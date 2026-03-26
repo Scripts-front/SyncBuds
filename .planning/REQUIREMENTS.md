@@ -9,8 +9,8 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Bluetooth Detection
 
-- [ ] **BT-01**: Mac app detects all paired Bluetooth audio devices (A2DP/HFP) via IOBluetooth
-- [ ] **BT-02**: iOS app detects current audio route and connected Bluetooth device via AVAudioSession
+- [x] **BT-01**: Mac app detects all paired Bluetooth audio devices (A2DP/HFP) via IOBluetooth
+- [x] **BT-02**: iOS app detects current audio route and connected Bluetooth device via AVAudioSession
 - [x] **BT-03**: App persists known devices across launches (name, MAC address, last seen)
 - [ ] **BT-04**: App shows real-time connection status (connected/disconnected, which device has it)
 - [ ] **BT-05**: App displays headphone battery level when available via HFP or vendor BLE profile
@@ -80,8 +80,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| BT-01 | Phase 1 | Pending |
-| BT-02 | Phase 1 | Pending |
+| BT-01 | Phase 1 | Complete |
+| BT-02 | Phase 1 | Complete |
 | BT-03 | Phase 1 | Complete |
 | BT-04 | Phase 2 | Pending |
 | BT-05 | Phase 5 | Pending |
