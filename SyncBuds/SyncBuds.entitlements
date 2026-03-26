@@ -10,7 +10,8 @@
     <key>com.apple.security.device.bluetooth</key>
     <true/>
 
-    <!-- CloudKit — configured now, cannot test until Developer Account exists (D-01, D-03, INF-02) -->
+    <!-- CloudKit — REMOVED: requires paid Apple Developer Account (D-01) -->
+    <!-- Re-add these keys after creating Apple Developer Account:
     <key>com.apple.developer.icloud-containers-environment</key>
     <string>Production</string>
     <key>com.apple.developer.icloud-container-identifiers</key>
@@ -19,5 +20,6 @@
     </array>
     <key>com.apple.developer.ubiquity-kvstore-identifier</key>
     <string>$(TeamIdentifierPrefix)$(CFBundleIdentifier)</string>
+    -->
 </dict>
 </plist>
