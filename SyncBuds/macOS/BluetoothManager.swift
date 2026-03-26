@@ -35,6 +35,9 @@ final class BluetoothManager: NSObject {
     /// Set by the app after instantiating MultipeerService.
     weak var multipeerService: MultipeerService?
 
+    /// Weak reference to the switch coordinator. Used to check cooldown state during deviceDidConnect.
+    weak var switchCoordinator: SwitchCoordinator?
+
     // MARK: - Enumeration
 
     /// Returns all paired Bluetooth audio devices (A2DP/HFP headphones and speakers).
@@ -148,8 +151,16 @@ final class BluetoothManager: NSObject {
         device: IOBluetoothDevice
     ) {
         let name = device.name ?? device.addressString ?? "unknown"
-        print("[BluetoothManager] Device connected: \(name)")
 
+        // Cooldown suppression (SW-05): if a switch just completed, immediately disconnect
+        // any device that auto-reconnects to Mac during the cooldown window.
+        if let coordinator = switchCoordinator, coordinator.isInCooldown(for: device.addressString) {
+            print("[BluetoothManager] Suppressing auto-reconnect during cooldown: \(name)")
+            Task { await self.disconnectDevice(device) }
+            return
+        }
+
+        print("[BluetoothManager] Device connected: \(name)")
         multipeerService?.localBluetoothStatus = "connected"
         let signal = SyncSignal(type: .status, sender: .mac, timestamp: Date(), bluetoothStatus: "connected")
         try? multipeerService?.send(signal)

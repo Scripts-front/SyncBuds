@@ -34,6 +34,10 @@ import UIKit
     /// True when at least one peer has reached the `.connected` state.
     var isConnectedToPeer: Bool = false
 
+    /// Weak reference to the shared switch coordinator.
+    /// Set by the app after instantiating SwitchCoordinator.
+    weak var switchCoordinator: SwitchCoordinator?
+
     /// Display name of the currently connected peer, or nil when no peer is connected.
     var connectedPeerName: String? = nil
 
@@ -143,9 +147,10 @@ import UIKit
         case .status:
             peerBluetoothStatus = signal.bluetoothStatus
             print("[MultipeerService] Peer bluetooth status: \(signal.bluetoothStatus) (sender: \(signal.sender.rawValue))")
+            switchCoordinator?.handleIncomingStatusConfirmation(bluetoothStatus: signal.bluetoothStatus)
         case .switchRequest:
-            // TODO: Phase 3 — handle switch request by triggering Bluetooth disconnect on macOS
-            print("[MultipeerService] Received switch request from \(signal.sender.rawValue) — not yet handled (Phase 3)")
+            print("[MultipeerService] Received switch request from \(signal.sender.rawValue)")
+            switchCoordinator?.handleIncomingSwitchRequest(from: signal.sender)
         }
     }
 }
