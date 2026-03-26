@@ -2,14 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSBluetoothAlwaysUsageDescription</key>
-    <string>SyncBuds needs Bluetooth access to detect and switch your headphones between Mac and iPhone.</string>
-    <key>NSLocalNetworkUsageDescription</key>
-    <string>SyncBuds uses your local network to communicate between your Mac and iPhone for headphone switching.</string>
-    <key>NSBonjourServices</key>
-    <array>
-        <string>_syncbuds-bt._tcp</string>
-        <string>_syncbuds-bt._udp</string>
-    </array>
+	<key> Privacy - Local Network Usage Description</key>
+	<string>SyncBuds uses your local network to communicate between your Mac and iPhone for headphone switching.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_syncbuds-bt._tcp</string>
+		<string>_syncbuds-bt._udp</string>
+	</array>
+	<key>UIApplicationSceneManifest</key>
+	<string></string>
 </dict>
 </plist>
