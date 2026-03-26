@@ -5,6 +5,9 @@
 
 import SwiftUI
 import SwiftData
+#if os(macOS)
+import IOBluetooth
+#endif
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
