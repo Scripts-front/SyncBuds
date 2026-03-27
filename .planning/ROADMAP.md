@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 2: Communication** - Cross-device signaling via Multipeer Connectivity (CloudKit deferred), with live connection status
 - [ ] **Phase 3: Switching** - Bidirectional switching state machine with race condition handling and notifications
 - [ ] **Phase 4: UI** - Mac menu bar app, iOS interface, and keyboard shortcut
-- [ ] **Phase 5: Automation** - Automatic switching heuristics, iOS home screen widget, and battery display
+- [x] **Phase 5: Automation** - Automatic switching heuristics, iOS home screen widget, and battery display (completed 2026-03-27)
 
 ## Phase Details
 
@@ -103,7 +103,7 @@ Plans:
 
 Plans:
 - [x] 05-01-PLAN.md — Auto-switch toggle + scenePhase hook + WidgetStateWriter App Group bridge (SW-06)
-- [ ] 05-02-PLAN.md — iOS home screen widget (WidgetKit + AppIntents + ForegroundContinuableIntent) (UI-05)
+- [x] 05-02-PLAN.md — iOS home screen widget (WidgetKit + AppIntents + ForegroundContinuableIntent) (UI-05)
 
 ## Progress
 
@@ -116,4 +116,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Communication | 1/5 | In Progress|  |
 | 3. Switching | 2/3 | In Progress|  |
 | 4. UI | 1/3 | In Progress|  |
-| 5. Automation | 1/2 | In Progress|  |
+| 5. Automation | 2/2 | Complete   | 2026-03-27 |

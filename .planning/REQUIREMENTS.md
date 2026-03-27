@@ -37,7 +37,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **UI-02**: Menu bar popover shows connected device, status, and one-click switch button
 - [x] **UI-03**: Global keyboard shortcut on Mac to trigger switch (configurable hotkey)
 - [x] **UI-04**: iOS app shows connection status and switch button with minimalist interface
-- [ ] **UI-05**: iOS home screen widget to initiate switch without opening app (WidgetKit)
+- [x] **UI-05**: iOS home screen widget to initiate switch without opening app (WidgetKit)
 
 ### Infrastructure
 
@@ -99,7 +99,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | UI-02 | Phase 4 | Complete |
 | UI-03 | Phase 4 | Complete |
 | UI-04 | Phase 4 | Complete |
-| UI-05 | Phase 5 | Pending |
+| UI-05 | Phase 5 | Complete |
 | INF-01 | Phase 1 | Pending |
 | INF-02 | Phase 1 | Pending |
 | INF-03 | Phase 1 | Pending |

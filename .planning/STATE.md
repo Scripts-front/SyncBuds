@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 05-automation/05-01-PLAN.md
-last_updated: "2026-03-26T23:45:00.543Z"
-last_activity: 2026-03-26
+status: verifying
+stopped_at: Completed 05-automation/05-02-PLAN.md
+last_updated: "2026-03-27T01:58:42.579Z"
+last_activity: 2026-03-27
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 17
-  completed_plans: 16
+  completed_plans: 17
   percent: 67
 ---
 
@@ -27,8 +27,8 @@ See: .planning/PROJECT.md (updated 2026-03-25)
 
 Phase: 05 (automation) — EXECUTING
 Plan: 2 of 2
-Status: Ready to execute
-Last activity: 2026-03-26
+Status: Phase complete — ready for verification
+Last activity: 2026-03-27
 
 Progress: [███████░░░] 67%
 
@@ -64,6 +64,7 @@ Progress: [███████░░░] 67%
 | Phase 04-ui P03 | 2min | 2 tasks | 2 files |
 | Phase 04-ui P02 | 103s | 2 tasks | 3 files |
 | Phase 05-automation P01 | 3min | 2 tasks | 6 files |
+| Phase 05-automation P02 | 6min | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -106,6 +107,8 @@ Recent decisions affecting current work:
 - [Phase 05-automation]: autoSwitchEnabled defaults to false — opt-in is safer than opt-out for automated switching
 - [Phase 05-automation]: scenePhase onChange on WindowGroup (App level) not iOSContentView — RESEARCH.md Pattern 1
 - [Phase 05-automation]: WidgetStateWriter calls wrapped in #if os(iOS) — macOS target has no App Group widget
+- [Phase 05-automation]: SwitchIntentBridge uses NotificationCenter bridge — ForegroundContinuableIntent routes intent to app process, mirrors hotkeyChanged pattern for architectural consistency
+- [Phase 05-automation]: WidgetEntryTests uses local mirror struct (option b) — widget extension target inaccessible from SyncBudsTests without complex cross-target membership
 
 ### Pending Todos
 
@@ -119,6 +122,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-26T23:45:00.536Z
-Stopped at: Completed 05-automation/05-01-PLAN.md
+Last session: 2026-03-27T01:58:42.572Z
+Stopped at: Completed 05-automation/05-02-PLAN.md
 Resume file: None
