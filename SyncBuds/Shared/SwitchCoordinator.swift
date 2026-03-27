@@ -89,8 +89,11 @@ import IOBluetooth
             print("[SwitchCoordinator] Headphone is on Mac → Mac→iPhone flow")
             performMacToiPhoneSwitch()
         } else {
-            // Headphone is NOT on Mac → pull from iPhone to Mac
-            print("[SwitchCoordinator] Headphone is not on Mac → iPhone→Mac flow (Mac connects)")
+            // Headphone is NOT on Mac → ask iPhone to release, then Mac connects
+            print("[SwitchCoordinator] Headphone is not on Mac → requesting iPhone to release")
+            let signal = SyncSignal(type: .switchRequest, sender: .mac, timestamp: Date(), bluetoothStatus: "requesting")
+            try? multipeerService?.send(signal)
+            // Start retry loop — iPhone user will disconnect manually, then Mac connects
             performMacConnectForIncomingRequest()
         }
         #else
@@ -108,9 +111,9 @@ import IOBluetooth
         performMacConnectForIncomingRequest()
         #else
         guard sender == .mac else { return }
-        // iOS receives this only in the Mac→iPhone flow: headphone is on its way.
-        // No action needed on iOS — headphone will auto-connect to iPhone shortly.
-        print("[SwitchCoordinator] iOS received switch request from Mac — awaiting headphone connection")
+        // Mac wants the headphone — notify user to disconnect from iPhone
+        print("[SwitchCoordinator] iOS received switch request from Mac — notifying user to disconnect headphone")
+        postNotification(title: "Switch Requested", body: "Mac wants the headphone. Disconnect Bluetooth in Settings to release it.")
         #endif
     }
 
@@ -210,14 +213,14 @@ import IOBluetooth
         }
 
         // Retry connect with increasing delays — headphone needs time to release from iPhone
-        let delays: [Double] = [1.0, 2.0, 3.0, 4.0, 5.0]
+        let delays: [Double] = [2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 15.0]
         attemptConnect(device: device, manager: manager, delays: delays, attempt: 0)
     }
 
     private func attemptConnect(device: IOBluetoothDevice, manager: BluetoothManager, delays: [Double], attempt: Int) {
         guard attempt < delays.count else {
             print("[SwitchCoordinator] Mac connect failed after \(delays.count) attempts")
-            postNotification(title: "Switch Failed", body: "Headphone did not connect after \(delays.count) attempts")
+            postNotification(title: "Switch Failed", body: "Headphone did not connect. Make sure to disconnect it from iPhone first.")
             transitionToError("Connect failed after retries")
             return
         }
