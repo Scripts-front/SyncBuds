@@ -5,6 +5,7 @@
 
 import SwiftUI
 import WidgetKit
+import AppIntents
 
 struct SyncBudsWidgetView: View {
     var entry: SyncBudsWidgetEntry
