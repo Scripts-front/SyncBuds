@@ -83,7 +83,16 @@ import IOBluetooth
         print("[SwitchCoordinator] Switch started — state: .switching")
 
         #if os(macOS)
-        performMacToiPhoneSwitch()
+        // Detect where the headphone is and choose the right flow
+        if let device = bluetoothManager?.pairedAudioDevices().first, device.isConnected() {
+            // Headphone is on Mac → send to iPhone
+            print("[SwitchCoordinator] Headphone is on Mac → Mac→iPhone flow")
+            performMacToiPhoneSwitch()
+        } else {
+            // Headphone is NOT on Mac → pull from iPhone to Mac
+            print("[SwitchCoordinator] Headphone is not on Mac → iPhone→Mac flow (Mac connects)")
+            performMacConnectForIncomingRequest()
+        }
         #else
         performiPhoneToMacSwitch()
         #endif
