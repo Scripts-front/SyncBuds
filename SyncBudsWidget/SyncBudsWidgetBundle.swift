@@ -2,8 +2,6 @@
 //  SyncBudsWidgetBundle.swift
 //  SyncBudsWidget
 //
-//  Created by Jose Gabiel on 2026/03/26.
-//
 
 import WidgetKit
 import SwiftUI

@@ -53,6 +53,16 @@ struct SyncBudsApp: App {
         #else
         coordinator.multipeerService = multipeer
         multipeer.switchCoordinator = coordinator
+
+        // Widget switch request observer — mirrors hotkeyChanged pattern (per D-05)
+        // SwitchHeadphoneIntent.perform() posts this notification via SwitchIntentBridge.requestSwitch()
+        NotificationCenter.default.addObserver(
+            forName: .widgetSwitchRequested,
+            object: nil,
+            queue: .main
+        ) { [weak coordinator] _ in
+            Task { @MainActor in coordinator?.requestSwitch() }
+        }
         #endif
 
         _multipeerService = State(initialValue: multipeer)
