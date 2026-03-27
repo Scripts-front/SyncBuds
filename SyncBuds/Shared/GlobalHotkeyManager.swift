@@ -13,7 +13,7 @@ import Foundation
 final class GlobalHotkeyManager {
 
     // Static storage for the action — needed for @convention(c) C function bridge
-    private static var storedAction: (() -> Void)?
+    fileprivate static var storedAction: (() -> Void)?
     private var hotKeyRef: EventHotKeyRef?
     private var eventHandler: EventHandlerRef?
 
